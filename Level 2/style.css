@@ -1,0 +1,23 @@
+.shop{
+    border-radius: 10px;
+    height: 35px;
+}
+
+#bag{
+    background-color: rgb(101, 244, 158);
+    border: 0;
+    width: 100px;
+    height: 30px;
+}
+
+#wish{
+    border: 2px solid black;
+    width: 150px;
+}
+
+#sale{
+    background-color: rgb(244, 101, 101);
+    border: 0;
+    width: 150px;
+    height: 30px;
+}
