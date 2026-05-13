@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cricket Game</title>
+    <link rel="stylesheet" href="cricket.css">
+   
+</head>
+<body>
+    <h1>Bat Ball Stump Game</h1>
+    <button
+    onclick="
+    choiceGenerator();    
+    console.log(computerChoice);
+    throwAlert('Bat');
+    throwResult(computerChoice,1);
+    
+    ">Bat</button>
+    <button
+    onclick="
+    choiceGenerator();
+    console.log(computerChoice);
+    throwAlert('Ball');
+    throwResult(computerChoice,2);
+
+    ">Ball</button>
+    <button
+    onclick="
+    choiceGenerator();
+    console.log(computerChoice);
+    throwAlert('Stump');
+    throwResult(computerChoice,3);
+
+    ">Stump</button>
+
+    <script>
+    let computerChoice;
+    let Display;
+    function choiceGenerator(){
+        computerChoice = Math.ceil(Math.random() * 3);    
+    //1 for Bat, 2 for Ball, 3 for Stump
+    //1>2>3<1
+    }
+
+    function name(){
+    if(computerChoice === 1){
+        return 'Bat';
+    } else if(computerChoice === 2){
+        return 'Ball';
+    } else {
+        return 'Stump';
+    }
+    }
+
+    function throwAlert(UserChoice){
+        alert(`Computer choice: ${name()} You chose: ${UserChoice}`);
+    }
+
+    function throwResult(computerChoice, userChoice){
+         //1 for Bat, 2 for Ball, 3 for Stump
+         //1>2>3<1    Winning conditions: winner>loser(1>2>3<1)
+        if(computerChoice === userChoice){  
+         alert(`That's a Tie!`);
+        } else if(computerChoice === 3 && userChoice === 1){
+            alert('You Lost!');
+        }
+        else if(computerChoice === 1 && userChoice === 3){
+            alert('You Won!');
+        }
+        else if(computerChoice > userChoice){
+            alert('You Won!');
+        } else {
+            alert('You Lost!');
+        }
+    }
+
+
+    </script>
+</body>
+</html>
