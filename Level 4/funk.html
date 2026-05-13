@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    
+    <script>
+        let num=25
+        print();
+
+        function print(){
+            console.log(evenOrOdd(num));
+            console.log(large(10, 20));
+            console.log(calCon(25));
+        }
+
+        function evenOrOdd(num){
+            if(num%2 === 0){
+                return "Even";
+            } else {
+                return "Odd";
+            }
+        }
+
+        function large(num1,num2){
+            if(num1>num2){
+                return num1;
+            } else if(num2>num1){
+                return num2;
+            } else {
+                return "Both numbers are equal";
+            }
+        }
+
+        function calCon(cel){
+            return  (9/5)*cel +32;
+        }
+
+    </script>
+</body>
+</html>
