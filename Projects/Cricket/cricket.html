@@ -7,15 +7,15 @@
 </head>
 <body>
     <h1>Bat Ball Stump Game</h1>
-    <button
+    <button id="batButton"
     onclick="
     choiceGenerator();    
     console.log(computerChoice);
     throwAlert('Bat');
     throwResult(computerChoice,1);
-    
     ">Bat</button>
-    <button
+
+    <button id="ballButton"
     onclick="
     choiceGenerator();
     console.log(computerChoice);
@@ -23,18 +23,37 @@
     throwResult(computerChoice,2);
 
     ">Ball</button>
-    <button
+
+    <button id="stumpButton"
     onclick="
     choiceGenerator();
     console.log(computerChoice);
     throwAlert('Stump');
     throwResult(computerChoice,3);
-
     ">Stump</button>
+
+    <button id="resetButton" onclick="localStorage.clear(); resetScore(); ">Reset</button>
 
     <script>
     let computerChoice;
-    let Display;
+    let scoreStr = localStorage.getItem('score');
+    let score;
+    resetScore(scoreStr);
+    function resetScore(scoreStr){
+    score = scoreStr ?  JSON.parse(scoreStr) : {
+        win:0,
+        lose:0,
+        tie:0,
+    };
+        score.displayScore = function(){
+                return `Wins: ${score.win} Losses: ${score.lose} Ties: ${score.tie}`;
+            }
+     };
+
+
+
+    // score = JSON.parse(localStorage.getItem('score')) || score;
+    
     function choiceGenerator(){
         computerChoice = Math.ceil(Math.random() * 3);    
     //1 for Bat, 2 for Ball, 3 for Stump
@@ -52,26 +71,47 @@
     }
 
     function throwAlert(UserChoice){
-        alert(`Computer choice: ${name()} You chose: ${UserChoice}`);
+        alert(`Computer choice: ${name()} You chose: ${UserChoice}
+    `);
     }
 
     function throwResult(computerChoice, userChoice){
          //1 for Bat, 2 for Ball, 3 for Stump
          //1>2>3<1    Winning conditions: winner>loser(1>2>3<1)
         if(computerChoice === userChoice){  
-         alert(`That's a Tie!`);
+            score.tie++;
+         alert(`That's a Tie! 
+          ${score.displayScore()}`);
         } else if(computerChoice === 3 && userChoice === 1){
-            alert('You Lost!');
+            score.lose++;
+            alert(`You Lost!
+            ${  score.displayScore()}`);
         }
+    
         else if(computerChoice === 1 && userChoice === 3){
-            alert('You Won!');
+            score.win++;
+            alert(`You Won!
+            ${score.displayScore()}`);
         }
         else if(computerChoice > userChoice){
-            alert('You Won!');
+            score.win++;    
+            alert(`You Won!
+            ${score.displayScore()}`);
         } else {
-            alert('You Lost!');
+            score.lose++;
+            alert(`You Lost!
+            ${score.displayScore()}`);
         }
+        
+        updateScore();
+        console.log(score);
+        console.log(JSON.parse(localStorage.getItem('score')));
     }
+    
+    function updateScore(){
+        localStorage.setItem('score', JSON.stringify(score));
+    }
+    
 
 
     </script>
