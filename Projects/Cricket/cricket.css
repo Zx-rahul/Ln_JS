@@ -10,30 +10,84 @@
 
         h1{
             text-transform: uppercase;
-            color: #FFD700;
+            color: #FFFFFF;
             font-size: 40px;
             margin-top: 20px;
         }
+
+ h3{
+            color: #FFFFFF;
+            font-size: 24px;
+            margin: 10px 0;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        }
+    
+        #result.win {
+            color: #2ecc71;
+        }
+
+        #result.lose {
+            color: #e74c3c;
+        }
+
+        #result.tie {
+            color: #f1c40f;
+        }
+
+        #score{
+            color: #FFFFFF;
+            position:relative;
+            font-size: 20px;
+            margin-top: 20px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        #score .score-win {
+            color: #16ea6e;
+            font-weight: 700;
+        }
+
+        #score .score-lose {
+            color: #f3301a;
+            font-weight: 700;
+        }
+
+        #score .score-tie {
+            color: #fad907;
+            font-weight: 700;
+        }
+
+        #score span {
+            margin: 0 10px;
+        }
+
 button{
             position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             margin: 10px;
             padding: 0 10px;
             font-size: 20px;
             color: #ffffff;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(255, 255, 255, 0.7);
-            border-radius: 18px;
+            border: none;
+            border-radius: 75px;
             overflow: hidden;
-            background-color: rgba(0, 0, 0, 0.45);
-            background-blend-mode: darken;
+            background-color: transparent;
+            filter: brightness(1.2);
             box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+#resetButton{
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+ 
 
 button:hover {
             transform: translateY(-2px);
@@ -41,21 +95,17 @@ button:hover {
 }
 
        #batButton{
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/bat.png) center center;
-            background-size: cover;
+            background: url(images/bat.png) center / cover no-repeat;
         }
 
         #ballButton{
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/ball.png);
-            background-size: cover;
+            background: url(images/ball.png)  top / cover no-repeat;
         }
 
         #stumpButton{
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/stump.png);
-            background-size: cover;
+            background: url(images/stump.png) left / cover no-repeat;
         }
 
         #resetButton{
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/reset.png) center center;
-            background-size: cover;
+            background: url(images/reset.png) center / cover no-repeat;
         }
