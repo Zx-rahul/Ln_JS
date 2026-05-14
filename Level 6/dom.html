@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin-left: 45%;
+            margin-top: 20%;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 100px;
+            border: none;
+            border-radius: 60px;
+            font-size: 50px;
+        }
+        .odd{
+            background-color: red;
+        }
+        .even {
+            background-color: yellow;
+        }   
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;"></h1>
+    <button onclick="
+    increment();
+    "></button>
+
+    <script>
+     
+        let time= new Date().getHours();
+        let someone='babu';
+        if(time >= '05' && time < '12'){
+             document.querySelector('h1').innerText = `Good Morning... ${someone}`;
+        }
+        else if(time >= '12' && time < '17'){
+             document.querySelector('h1').innerText = `Good Afternoon... ${someone}`;
+        }
+        else if(time >= '17' && time < '20'){
+             document.querySelector('h1').innerText = `Good Evening... ${someone}`;
+        }
+        else{
+             document.querySelector('h1').innerText = `Good Night... ${someone}`;
+        }
+
+       let counter= localStorage.getItem('counter') || 0;
+       function increment(){
+        document.querySelector('button').innerText = `${counter}`;
+        counter++
+        localStorage.setItem('counter', counter)
+        document.querySelector('button').className = counter%2===0 ? 'odd' : 'even';
+       }
+
+    </script>
+</body>
+</html>
