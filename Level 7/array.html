@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+</head>
+<body>
+
+
+    <script>
+        let arr=[5,6];
+        console.log(arr);
+        arr.unshift(4);
+        arr.push(7);
+        console.log(arr);
+
+        console.log(fetch(arr,1));
+
+        function fetch(arr,which){
+            return arr[which-1];
+        }
+
+        function copyFetch(arr){
+            copy=arr.slice(0,arr.length);
+            return copy;
+        }
+
+        
+        console.log(copyFetch(arr));
+
+        // prime--> 1 and itself
+
+        function prime(num){
+         for(let i=2;i<num;i++){
+            if(num%i===0){
+                return false;
+            }
+            return true;
+         }
+        }
+
+        let cnt=0;
+         let i=0;
+        while(true){
+           if(prime(i)){
+            console.log(i);
+            cnt++;
+           }
+           i++;
+           if(cnt>=5){
+            break;
+           }
+        }
+
+        for(let i=0;i<10;i++){
+            console.log(10-i);
+        }
+
+        let posarr=[1,-6,5,7,-98];
+        for(let i=0;i<posarr.length;i++){
+            if(posarr[i]<0){
+continue;
+            }
+            console.log(posarr[i]);
+        }
+
+
+    </script>
+</body>
+</html>
