@@ -6,6 +6,8 @@ function isIdentical(pro1,pro2){
         return false;
     }
 
+//just a comment push
+
    //same reference
    if (pro1==pro2){
     return true;
